@@ -1,8 +1,9 @@
 import express from "express";
 const server = express();
  import { connectToMongo } from "./Database/database.config.js"; 
- import { router } from "./routes/product.route.js";
-
+ import { router as productRouter}  from "./routes/product.route.js";
+import {router as categoryRouter} from "./routes/category.route.js"; 
+import {router as brandRouter} from "./routes/brand.route.js";
  server.use(express.json())
  
  connectToMongo()
@@ -11,4 +12,6 @@ const server = express();
 })})
 .catch(()=>{console.log("Failed to connect to Mongo")})
 
- server.use("/products",router)
+ server.use("/products",productRouter)
+ server.use("/categories",categoryRouter)
+ server.use("/brands",brandRouter)
