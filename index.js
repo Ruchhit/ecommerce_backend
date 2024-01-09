@@ -6,7 +6,9 @@ import {router as categoryRouter} from "./routes/category.route.js";
 import {router as brandRouter} from "./routes/brand.route.js";
 import { userRouter } from "./routes/user.route.js";
 import { authRouter } from "./routes/auth.route.js";
- server.use(express.json())
+import { cartRouter } from "./routes/cart.route.js";
+ 
+server.use(express.json())
  
  connectToMongo()
  .then(()=>{server.listen(8080,()=>{
@@ -19,3 +21,4 @@ import { authRouter } from "./routes/auth.route.js";
  server.use("/brands",brandRouter)
  server.use("/users",userRouter)
  server.use("/auth",authRouter)
+ server.use("/cart",cartRouter)
