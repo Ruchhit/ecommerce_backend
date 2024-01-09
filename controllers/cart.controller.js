@@ -13,14 +13,15 @@ export const fetchCartByUser = async (req, res) => {
 };
 
 export const addToCart = async (req, res) => {
-  const {id} = req.user;
-  const cart = new Cart({...req.body,user:id});
+  // const {id} = req.user;
+  // const cart = new Cart({...req.body,user:id});
+  const cart = new Cart(req.body);
   try {
     const doc = await cart.save();
     const result = await doc.populate('product');
-    res.status(201).json(result);
+    res.status(201).json(doc);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json("nhi ho rha contro");
   }
 };
 

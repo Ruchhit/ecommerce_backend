@@ -7,6 +7,7 @@ import {router as brandRouter} from "./routes/brand.route.js";
 import { userRouter } from "./routes/user.route.js";
 import { authRouter } from "./routes/auth.route.js";
 import { cartRouter } from "./routes/cart.route.js";
+import { orderRouter } from "./routes/order.route.js";
  
 server.use(express.json())
  
@@ -22,3 +23,4 @@ server.use(express.json())
  server.use("/users",userRouter)
  server.use("/auth",authRouter)
  server.use("/cart",cartRouter)
+ server.use("/order",orderRouter)
