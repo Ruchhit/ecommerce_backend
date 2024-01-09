@@ -4,6 +4,7 @@ const server = express();
  import { router as productRouter}  from "./routes/product.route.js";
 import {router as categoryRouter} from "./routes/category.route.js"; 
 import {router as brandRouter} from "./routes/brand.route.js";
+import { userRouter } from "./routes/user.route.js";
  server.use(express.json())
  
  connectToMongo()
@@ -15,3 +16,4 @@ import {router as brandRouter} from "./routes/brand.route.js";
  server.use("/products",productRouter)
  server.use("/categories",categoryRouter)
  server.use("/brands",brandRouter)
+ server.use("/users",userRouter)
